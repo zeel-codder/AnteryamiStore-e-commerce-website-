@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anteryami Store</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <section class="Home-body">
+
+        <div class="Home-logo-text">
+            <h1 class="hover">One place for all your need</h1>
+            <p class="hover">Well come to world fastest growing online market Ateryami Store. Here you can find all things which you need.</p>
+            <a href="#box"><button>Goto Store</button></a>
+        </div>
+
+    </section>
+
+    <section class="container" id="box">
+       <div class="serach-bar">
+
+        <div>
+            Search:<input id="item-serach" type="search" placeholder="Search..">
+        </div>
+
+            <form  class="SortButton" onsubmit="GetItem(event)">
+                Category: 
+                <select class="btn" id="item-section">
+                    <option value="mask">Mask</option>
+                    <option value="food">Food</option>
+                    <option value="bat">Bat</option>
+                    <option value="football">Football</option>
+                </select>
+                <button type="submit" class="btn" >Find</button>
+            </form>
+        
+
+       </div>
+       <div class="items">
+       </div>
+    </section>
+
+
+</body>
+<script src="js/product.js"></script>
+<script src="js/html-same-componet.js"></script>
+<script src="js/user.js"></script>
+<script src="js/index.js"></script>
+<script>
+    AddItem()
+</script>
+</html>
