@@ -51,6 +51,7 @@ function OpenItem(e){
     console.log('click');
     if(!UserIsLogin()){
         window.scrollTo(0,0)
+        alert('Log In First');
         return ShowUserForm(null,"SingIn");
 
     }
@@ -72,6 +73,13 @@ function OpenItem(e){
 
 }
 
+
+function ToggleNavbar(e){
+    const nav=document.querySelector('navbar');
+    const bar=document.querySelector('#bar');
+    nav.classList.toggle('show-navbar');
+    bar.classList.toggle('roted');
+}
 
 function GetItem(e){
     e.preventDefault();

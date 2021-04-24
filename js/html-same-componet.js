@@ -9,29 +9,33 @@ function Navbar(){
     }
 
     let html=`
+    <div class='bar' onclick="ToggleNavbar(event)">X</div>
     <div class="navbar-item">
-        <a href="home.html">Anteryamin-store.<span class="hl">com</span></a>
+        <a href="index.html">Anteryamin-store.<span class="hl">com</span></a>
     </div>
     <div class="navbar-item">
-        <a href="home.html">Home</a>
+        <a href="index.html">Home</a>
     </div>
     <div class="navbar-item">
-        <a href="home.html">About us</a>
+        <a href="index.html">About us</a>
     </div>
+ 
     <div class="navbar-item-last">
         <!-- user not log-in-->
         ${isUserLogIn
             ?
             `<a href="User.html">${userInfo.name}</a>
-            <a href="home.html" onclick="LogoutUser()">Log Out</a>`
+            <a href="index.html" onclick="LogoutUser()">Log Out</a>`
             :
             `<a onclick="ShowUserForm(event,\`LogIn\`)"> Log In</a>
             <a onclick="ShowUserForm(event, \`SignIn\`)">Sing In</a>
+
+           
             
          
             <form  class="userform login" onsubmit="FindUserInfo(event)">
                  <h3 class="close" onclick="ShowUserForm(event,\`LogIn\`)"><a>x</a></h3>
-                <h3><a href="home.html">Anteryamin-store.<span class="hl">com</span></a></h3>
+                <h3><a href="index.html">Anteryamin-store.<span class="hl">com</span></a></h3>
                 <h3>Log In</h3>
                 <div class="input-label" required>Enter email:</div>
                 <input type="email" name="email" id="emaillogin" placeholder="Enter email" required>
@@ -42,7 +46,7 @@ function Navbar(){
             </form>   
             <form class="userform signin" onsubmit="AddUserInfo(event)">
             <h3 class="close" onclick="ShowUserForm(event,\`SignIn\`)"><a>x</a></h3>
-                <h3><a href="home.html">Anteryamin-store.<span class="hl">com</span></a></h3>
+                <h3><a href="index.html">Anteryamin-store.<span class="hl">com</span></a></h3>
                 <h3>Sing In</h3>
                 <div class="input-label">Enter name:</div>
                 <input type="text" name="email" id="name" placeholder="Enter name" required>
@@ -73,7 +77,13 @@ function Navbar(){
     if(nav){
         nav.innerHTML=html;
     }else{
-        html=`<navbar>${html}</navbar>`
+        html=`<button class='btn bar'>
+              <a href="index.html" class="title">Anteryamin-store.<span class="hl">com</span></a>
+              <img src="static/bar.png" id="bar" onclick="ToggleNavbar(event)">
+              </button>
+                
+        
+               <navbar>${html}</navbar>`
 
         body.innerHTML=html+body.innerHTML;
     }
@@ -85,14 +95,14 @@ function Navbar(){
 function Footer(){
     const html=`
     <footer>
-    <div class="navbar-item">
-    <a href="home.html">Home</a>
+    <div class="navbar-item f" >
+    <a href="index.html">Home</a>
+    </div>
+    <div class="navbar-item f">
+    <a href="index.html">About us</a>
     </div>
     <div class="navbar-item">
-    <a href="home.html">About us</a>
-    </div>
-    <div class="navbar-item">
-    <a href="#">All Copyrights Goes to @Anteryamin-store.<span class="hl">com</span></a>
+    <a href="#">All Copyrights Goes to &copy;Anteryamin-store.<span class="hl">com</span></a>
     </div>
     </footer>
     `
@@ -115,6 +125,7 @@ function ItemCard(data,text="🛒 Add To Card ",remove=false){
     <p class="description">${description}.</p>
     <button class="btn" data-id=${id} onclick="OpenItem(event)">${text}</button>
     ${remove ? `<button class="btn" data-id=${id} onclick="RemoveItem(event)">Remove</button>`:``}
+
      </div>
     `
 }
@@ -138,7 +149,7 @@ function UserInfoAdd(){
     </div>
     <div class="userinfo-item">
 
-        <div class="input-label">Phone NUmber:</div>
+        <div class="input-label">Phone Number:</div>
         <input type="number" value=${phonenumber} readonly>
     </div>
     <div class="userinfo-item">
